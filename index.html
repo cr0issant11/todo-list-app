@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> My To-Do List</h1>
+            <p class="date" id="date"></p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                class="todo-input" 
+                placeholder="Ajouter une nouvelle tâche..."
+                autocomplete="off"
+            >
+            <button id="addBtn" class="add-btn" title="Ajouter">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-list"></i> Tous
+            </button>
+            <button class="filter-btn" data-filter="active">
+                <i class="fas fa-circle"></i> Actifs
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                <i class="fas fa-check-circle"></i> Complétés
+            </button>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat">
+                <span class="stat-label">Total:</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Complétés:</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Restants:</span>
+                <span class="stat-value" id="remainingCount">0</span>
+            </div>
+        </div>
+
+        <!-- Todo List -->
+        <div class="todo-list" id="todoList">
+            <!-- Les tâches seront ajoutées ici -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-inbox"></i>
+            <p>Aucune tâche pour le moment</p>
+            <small>Commencez à ajouter une tâche pour démarrer! 🚀</small>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="clearCompletedBtn" class="btn btn-secondary" title="Effacer les complétés">
+                <i class="fas fa-trash"></i> Effacer les complétés
+            </button>
+            <button id="clearAllBtn" class="btn btn-danger" title="Effacer tout">
+                <i class="fas fa-trash-alt"></i> Effacer tout
+            </button>
+            <button id="exportBtn" class="btn btn-primary" title="Exporter">
+                <i class="fas fa-download"></i> Exporter
+            </button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h2>Confirmation</h2>
+            <p id="confirmMessage"></p>
+            <div class="modal-buttons">
+                <button id="cancelBtn" class="btn btn-secondary">Annuler</button>
+                <button id="confirmBtn" class="btn btn-danger">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="storage.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
